@@ -28,39 +28,32 @@ test('has title NeBanka', async () => {
 });
 
 test('check text on first slide', async () => {
-  
   await expect(page.locator('#root')).toContainText(mainText_1);
 });
 
 test('check text on second slide', async () => {
-  
   await page.getByRole('button', { name: 'Далее' }).click();
   const mainText_2_element = await page.locator('p.mx-auto');
   await expect(mainText_2_element).toContainText(mainText_2);
 });
 
 test('Check something first is visible', async () => {
-  
   await expect(page.locator(".mx-auto.w-full").first()).toBeVisible();
 });
 
 test('Check something last is vivisible', async () => {
-  
   await expect(page.locator(".mx-auto.w-full").last()).toBeVisible();
 });
 
 test('Check invest calc upper calc', async () => {
-  
   await expect(page.locator('#root')).toContainText('Калькулятор инвестиций');
 });
 
 test('Check invest calc button in calc for money', async () => {
-  
   await expect(page.locator('#root')).toContainText('Рублей');
 });
 
 test('Check invest calc button in calc for day', async () => {
-  
   await expect(page.locator('#root')).toContainText('Дней');
 });
 
@@ -69,7 +62,6 @@ test("Skip button route on last slide", async () => {
 });
 
 test('Check invest calc for currect answer', async () => {
-  
   await page.getByRole('button', { name: 'Далее' }).click();
   await page.getByRole('textbox', { name: 'Рублей' }).fill(`${sum_test_calc_invest_1}`);
   await page.getByRole('textbox', { name: 'Дней' }).fill(`${day_test_calc_invest_1}`);
@@ -77,7 +69,6 @@ test('Check invest calc for currect answer', async () => {
 });
 
 test('Check invest calc for current answer when day >= 1000', async () => {
-  
   await page.getByRole('button', { name: 'Далее' }).click();
   await page.getByRole('textbox', { name: 'Рублей' }).fill(`${sum_test_calc_invest_neg}`);
   await page.getByRole('textbox', { name: 'Дней' }).fill(`${day_test_calc_invest_neg}`);
